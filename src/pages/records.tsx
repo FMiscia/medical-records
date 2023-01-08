@@ -137,7 +137,7 @@ const Records = () => {
                 />
             </Box>
             <Text margin={"small"} weight={"bold"} size="large">
-                {`RAILD LIST (${railds.length})`}
+                {`RAILD LIST (${railds?.length ?? 0})`}
             </Text>
             <Box data-testid="raild-container" flex direction="row" wrap>
                 <RecordBox
@@ -153,7 +153,7 @@ const Records = () => {
                 />
             </Box>
             <Text margin={"small"} weight={"bold"} size="large">
-                {`RAAA LIST (${raaa.length})`}
+                {`RAAA LIST (${raaa?.length ?? 0})`}
             </Text>
             <Box data-testid="raaa-container" flex direction="row" wrap>
                 <RecordBox
