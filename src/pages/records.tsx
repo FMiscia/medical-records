@@ -26,7 +26,7 @@ type RecordBoxType = {
 }
 const RecordBox = ({ items, onDelete, onEdit }: RecordBoxType) => {
     const [confirmed, setConfirmed] = useState(false)
-    const keys = Object.keys(items?.[0])
+    const keys = Object.keys(items?.[0] ?? {})
     return (
         <Box margin={"small"} style={{ overflowX: "scroll" }}>
             <Table>
@@ -140,33 +140,37 @@ const Records = () => {
                 {`RAILD LIST (${railds?.length ?? 0})`}
             </Text>
             <Box data-testid="raild-container" flex direction="row" wrap>
-                <RecordBox
-                    items={railds}
-                    onDelete={(item: RaildRecordModel) => deleteRaild(item)}
-                    onEdit={(item: RaildRecordModel) => {
-                        raildDispatch({
-                            type: "record/set",
-                            payload: item,
-                        })
-                        navigate("/raild")
-                    }}
-                />
+                {railds && (
+                    <RecordBox
+                        items={railds}
+                        onDelete={(item: RaildRecordModel) => deleteRaild(item)}
+                        onEdit={(item: RaildRecordModel) => {
+                            raildDispatch({
+                                type: "record/set",
+                                payload: item,
+                            })
+                            navigate("/raild")
+                        }}
+                    />
+                )}
             </Box>
             <Text margin={"small"} weight={"bold"} size="large">
                 {`RAAA LIST (${raaa?.length ?? 0})`}
             </Text>
             <Box data-testid="raaa-container" flex direction="row" wrap>
-                <RecordBox
-                    items={raaa}
-                    onDelete={(item: RaaaRecordModel) => deleteRaaa(item)}
-                    onEdit={(item: RaaaRecordModel) => {
-                        raaaDispatch({
-                            type: "record/set",
-                            payload: item,
-                        })
-                        navigate("/raaa")
-                    }}
-                />
+                {raaa && (
+                    <RecordBox
+                        items={raaa}
+                        onDelete={(item: RaaaRecordModel) => deleteRaaa(item)}
+                        onEdit={(item: RaaaRecordModel) => {
+                            raaaDispatch({
+                                type: "record/set",
+                                payload: item,
+                            })
+                            navigate("/raaa")
+                        }}
+                    />
+                )}
             </Box>
         </Box>
     )
