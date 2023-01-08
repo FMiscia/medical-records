@@ -97,6 +97,7 @@ const Navigation = () => {
                     <Route element={<RaaGenerator />} path="/raaa" />
                     <Route element={<RaildGenerator />} path="/raild" />
                     <Route element={<Records />} path="/records" />
+                    <Route element={<Records />} path="/" />
                 </Routes>
             </Router>
             {showNotification && (

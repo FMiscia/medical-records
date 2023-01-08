@@ -46,10 +46,10 @@ const RecordBox = ({ items, onDelete, onEdit }: RecordBoxType) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {items.map((item, index) => (
-                        <TableRow key={index}>
-                            {keys.map((k) => (
-                                <TableCell key={(item as any)[k]}>
+                    {items.map((item) => (
+                        <TableRow key={item.id}>
+                            {keys.map((k, index) => (
+                                <TableCell key={index}>
                                     <Text>{String((item as any)[k])}</Text>
                                 </TableCell>
                             ))}
@@ -140,7 +140,7 @@ const Records = () => {
                 {`RAILD LIST (${railds?.length ?? 0})`}
             </Text>
             <Box data-testid="raild-container" flex direction="row" wrap>
-                {railds && (
+                {railds.length > 0 && (
                     <RecordBox
                         items={railds}
                         onDelete={(item: RaildRecordModel) => deleteRaild(item)}
@@ -158,7 +158,7 @@ const Records = () => {
                 {`RAAA LIST (${raaa?.length ?? 0})`}
             </Text>
             <Box data-testid="raaa-container" flex direction="row" wrap>
-                {raaa && (
+                {raaa.length > 0 && (
                     <RecordBox
                         items={raaa}
                         onDelete={(item: RaaaRecordModel) => deleteRaaa(item)}
