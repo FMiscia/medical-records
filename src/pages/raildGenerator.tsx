@@ -115,7 +115,7 @@ const RaildGenerator = (props: RaildGeneratorType) => {
                                     />
                                 </Box>
                                 <Box flex direction="row" gap="small">
-                                    <BTextInput
+                                    <BSelect
                                         containerProps={{ flex: true }}
                                         name="gender"
                                         label="Gender"
@@ -124,6 +124,21 @@ const RaildGenerator = (props: RaildGeneratorType) => {
                                         handleBlur={handleBlur}
                                         values={values}
                                         errors={errors}
+                                        options={[
+                                            {
+                                                label: "M",
+                                                value: "M",
+                                            },
+                                            {
+                                                label: "F",
+                                                value: "F",
+                                            },
+                                        ]}
+                                        labelKey="label"
+                                        valueKey={{
+                                            key: "value",
+                                            reduce: true,
+                                        }}
                                     />
                                     <BSelect
                                         containerProps={{ flex: true }}

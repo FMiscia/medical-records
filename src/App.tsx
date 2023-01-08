@@ -10,6 +10,7 @@ import {
     BrowserRouter as Router,
     Route,
     Routes,
+    useLocation,
     useNavigate,
 } from "react-router-dom"
 import { theme } from "./hooks/useTheme"
@@ -20,6 +21,8 @@ import RaaGenerator from "./pages/raaaGenerator"
 
 const AppBar = () => {
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
     return (
         <Box
             tag="header"
@@ -34,11 +37,22 @@ const AppBar = () => {
         >
             <Heading size={"small"}>MEDICAL RECORDS</Heading>
             <Box direction="row" align="center" gap="small">
-                <Button primary label="RAAA" onClick={() => navigate("/raaa")} />
-                <Button primary label="RAILD" onClick={() => navigate("/raild")} />
                 <Button
-                    primary
-                    label="LIST"
+                    primary={location.pathname === "/raaa"}
+                    label="RAAA"
+                    onClick={() => navigate("/raaa")}
+                />
+                <Button
+                    primary={location.pathname === "/raild"}
+                    label="RAILD"
+                    onClick={() => navigate("/raild")}
+                />
+                <Button
+                    primary={
+                        location.pathname === "/records" ||
+                        location.pathname === "/"
+                    }
+                    label="RECORDS"
                     onClick={() => navigate("/records")}
                 />
             </Box>

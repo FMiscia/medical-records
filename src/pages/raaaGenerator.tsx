@@ -99,7 +99,7 @@ const RaaGenerator = (props: RaaGeneratorType) => {
                                     />
                                 </Box>
                                 <Box flex direction="row" gap="small">
-                                    <BTextInput
+                                    <BSelect
                                         containerProps={{ flex: true }}
                                         name="gender"
                                         label="Gender"
@@ -108,6 +108,21 @@ const RaaGenerator = (props: RaaGeneratorType) => {
                                         handleBlur={handleBlur}
                                         values={values}
                                         errors={errors}
+                                        options={[
+                                            {
+                                                label: "M",
+                                                value: "M",
+                                            },
+                                            {
+                                                label: "F",
+                                                value: "F",
+                                            },
+                                        ]}
+                                        labelKey="label"
+                                        valueKey={{
+                                            key: "value",
+                                            reduce: true,
+                                        }}
                                     />
                                     <BSelect
                                         containerProps={{ flex: true }}
